@@ -19,11 +19,9 @@ builder.Services.AddDbContext<Caso2Context>(options =>
 );
 
 // 2. Registrar el Repositorio Genérico
-// (Es vital para que funcione el servicio, tal como en tu proyecto de referencia)
 builder.Services.AddScoped(typeof(IRepositorioGenerico<>), typeof(RepositorioGenerico<>));
 
-// 3. Registrar tus Servicios (AQUÍ ESTÁBA EL ERROR)
-// Esta línea le dice a la app: "Cuando alguien pida IProductoServicio, dale un ProductoServicio"
+// 3. Registrar tus Servicios 
 builder.Services.AddScoped<IProductoServicio, ProductoServicio>();
 
 // 4. Registrar AutoMapper

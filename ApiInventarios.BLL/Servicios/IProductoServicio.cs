@@ -15,9 +15,7 @@ namespace ApiInventarios.BLL.Servicios
         Task<CustomResponse<ProductoDto>> ObtenerProductoPorIdAsync(int id);
         Task<CustomResponse<ProductoDto>> CrearProductoAsync(ProductoDto productoDto);
         Task<CustomResponse<ProductoDto>> ActualizarProductoAsync(ProductoDto productoDto);
-
-        // Funcionalidades específicas solicitadas en el Caso 2
-        Task<CustomResponse<bool>> ActualizarStockAsync(int id, int cantidad); // Sumar o restar
+        Task<CustomResponse<bool>> ActualizarStockAsync(int id, int cantidad); 
         Task<CustomResponse<bool>> VerificarStockAsync(int id, int cantidadRequerida);
     }
 }

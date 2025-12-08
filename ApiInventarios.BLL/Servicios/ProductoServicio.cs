@@ -44,7 +44,6 @@ namespace ApiInventarios.BLL.Servicios
         {
             var respuesta = new CustomResponse<ProductoDto>();
 
-            // Validaciones básicas (opcional)
             if (productoDto.Precio < 0)
             {
                 respuesta.EsError = true;
@@ -77,12 +76,9 @@ namespace ApiInventarios.BLL.Servicios
                 respuesta.Mensaje = "Producto no existe";
                 return respuesta;
             }
-
-            // Actualizar campos
             producto.Nombre = productoDto.Nombre;
             producto.Descripcion = productoDto.Descripcion;
             producto.Precio = productoDto.Precio;
-            // Nota: El stock normalmente se actualiza por separado, pero si el requerimiento "Modificar productos" incluye stock manual, se puede dejar:
             producto.Stock = productoDto.Stock;
 
             _productoRepositorio.Actualizar(producto);
